@@ -20,12 +20,6 @@ func _physics_process(delta: float) -> void:
 		print ("El valor de coyote time al pisar el suelo es ", coyoteTime)
 	elif (not is_on_floor() and coyoteTimer.time_left<=0):
 		coyoteTimer.start()
-		
-
-	
-	
-	
-	
 	#Caída
 	if not is_on_floor():
 		velocity += get_gravity() * delta
