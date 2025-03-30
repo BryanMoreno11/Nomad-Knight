@@ -1,18 +1,18 @@
-[gd_scene load_steps=30 format=3 uid="uid://bty7ue1827o3l"]
+[gd_scene load_steps=33 format=3 uid="uid://bty7ue1827o3l"]
 
 [ext_resource type="Texture2D" uid="uid://c0vt0hvwt0tov" path="res://assets/sprites/knight.png" id="1_vwgg1"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ytu5e"]
 [ext_resource type="Texture2D" uid="uid://dp877v6ridb3k" path="res://assets/sprites/AttackKnight-Sheet.png" id="2_ququ3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_30xtx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4flcc"]
 atlas = ExtResource("2_ququ3")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nh5qu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t408l"]
 atlas = ExtResource("2_ququ3")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ubkw4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pgod"]
 atlas = ExtResource("2_ququ3")
 region = Rect2(64, 0, 32, 32)
 
@@ -104,13 +104,13 @@ region = Rect2(224, 96, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_30xtx")
+"texture": SubResource("AtlasTexture_4flcc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nh5qu")
+"texture": SubResource("AtlasTexture_t408l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ubkw4")
+"texture": SubResource("AtlasTexture_2pgod")
 }],
 "loop": true,
 "name": &"attack",
@@ -198,6 +198,79 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_dc8ph"]
 radius = 4.47214
 
+[sub_resource type="Animation" id="Animation_7rcrc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:attacking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_35hk0"]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:attacking")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eaq6t"]
+_data = {
+"RESET": SubResource("Animation_7rcrc"),
+"attack": SubResource("Animation_35hk0")
+}
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 script = ExtResource("1_ytu5e")
@@ -207,7 +280,7 @@ position = Vector2(1, -13)
 sprite_frames = SubResource("SpriteFrames_nbqhf")
 animation = &"attack"
 autoplay = "default"
-frame_progress = 0.605776
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -8)
@@ -216,5 +289,10 @@ shape = SubResource("CircleShape2D_dc8ph")
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eaq6t")
+}
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
