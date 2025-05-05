@@ -8,7 +8,12 @@ var coyoteTime:bool=true
 @onready var  animatedSprite2D=$AnimatedSprite2D
 @onready var  animationPlayer=$AnimationPlayer
 @onready var  coyoteTimer=$CoyoteTimer
+@onready var  attackCollision=$AreaAttack/AttackCollisionShape2D
 
+
+func  _ready() -> void:
+	attackCollision.disabled=true
+	
 
 func _on_coyote_timer_timeout() -> void:
 	coyoteTime=false
@@ -20,8 +25,10 @@ func animations()->void:
 	if (direction>0):
 		animatedSprite2D.flip_h=false
 	if is_on_floor():
-		if(attacking):
+		if(attacking and animatedSprite2D.flip_h==false):
 			animationPlayer.play("attack")
+		elif(attacking and animatedSprite2D.flip_h==true):
+			animationPlayer.play("attack_left")
 		elif (direction==0):
 			animatedSprite2D.play("default")
 		else:
