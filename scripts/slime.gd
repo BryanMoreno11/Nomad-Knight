@@ -7,15 +7,14 @@ var direction=1
 @onready var  rayCastLeft=$RayCastLeft
 @onready var animatedSprite=$AnimatedSprite2D
 @onready var animationPlayer=$AnimationPlayer
-
-
+@onready var killZone= $killzone
+@onready var timer=$Timer
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,8 +27,12 @@ func _process(delta: float) -> void:
 	position.x+=direction* speed*delta
 	
 func takeDamage():
-	queue_free()
+	killZone.monitoring=false
+	animatedSprite.visible=false
+	timer.start()
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	print("Enemigo atacado")
 	animationPlayer.play("new_animation")
+	
+func _on_timer_timeout() -> void:
+	queue_free()

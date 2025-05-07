@@ -441,7 +441,7 @@ libraries = {
 collision_layer = 4
 
 [node name="AttackCollisionShape2D" type="CollisionShape2D" parent="AreaAttack"]
-position = Vector2(12, -14)
+position = Vector2(-10, -14)
 shape = SubResource("RectangleShape2D_wkw4l")
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
