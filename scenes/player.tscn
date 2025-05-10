@@ -419,7 +419,6 @@ script = ExtResource("1_ytu5e")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -13)
 sprite_frames = SubResource("SpriteFrames_nbqhf")
-animation = &"attack"
 autoplay = "default"
 frame = 1
 flip_h = true
@@ -441,7 +440,7 @@ libraries = {
 collision_layer = 4
 
 [node name="AttackCollisionShape2D" type="CollisionShape2D" parent="AreaAttack"]
-position = Vector2(-10, -14)
+position = Vector2(12, -14)
 shape = SubResource("RectangleShape2D_wkw4l")
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
