@@ -5,6 +5,8 @@ const speed=60
 var direction=1
 @onready var rayCastRight=$RayCastRight
 @onready var  rayCastLeft=$RayCastLeft
+@onready var  rayCastDownLeft=$RayCastDownLeft
+@onready var  rayCastDownRight=$RayCastDownRigth
 @onready var animatedSprite=$AnimatedSprite2D
 @onready var animationPlayer=$AnimationPlayer
 @onready var killZone= $killzone
@@ -18,10 +20,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(rayCastRight.is_colliding()):
+	if(rayCastRight.is_colliding() or !rayCastDownRight.is_colliding()):
 		direction=-1
 		animatedSprite.flip_h=true
-	if(rayCastLeft.is_colliding()):
+	if(rayCastLeft.is_colliding() or !rayCastDownLeft.is_colliding()):
 		direction=1
 		animatedSprite.flip_h=false
 	position.x+=direction* speed*delta

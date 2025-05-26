@@ -157,6 +157,16 @@ target_position = Vector2(13, 0)
 position = Vector2(0, 6)
 target_position = Vector2(-13, 0)
 
+[node name="RayCastDownLeft" type="RayCast2D" parent="."]
+position = Vector2(-7, 0.8)
+rotation = 4.71239
+target_position = Vector2(-13, 0)
+
+[node name="RayCastDownRigth" type="RayCast2D" parent="."]
+position = Vector2(6.99, 0.8)
+rotation = 4.71239
+target_position = Vector2(-13, 0)
+
 [node name="Hitbox" type="Area2D" parent="."]
 collision_mask = 4
 

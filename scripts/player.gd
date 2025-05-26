@@ -13,6 +13,8 @@ var coyoteTime:bool=true
 
 func  _ready() -> void:
 	attackCollision.disabled=true
+	position.x=-121
+	position.y=8
 	
 
 func _on_coyote_timer_timeout() -> void:
