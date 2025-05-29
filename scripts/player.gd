@@ -11,6 +11,8 @@ var coyoteTime:bool=true
 @onready var  animationPlayer=$AnimationPlayer
 @onready var  coyoteTimer=$CoyoteTimer
 @onready var  attackCollision=$AreaAttack/AttackCollisionShape2D
+@onready var  audioJump=$AudioJump
+
 
 
 func  _ready() -> void:
@@ -56,6 +58,7 @@ func jump(delta):
 		velocity += get_gravity() * delta
 	#Salto
 	if Input.is_action_just_pressed("Jump") and (is_on_floor() or coyoteTime==true):
+		audioJump.play()
 		coyoteTime=false
 		velocity.y = JUMP_VELOCITY
 	

@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dttf5066hr1pl"]
+[gd_scene load_steps=18 format=3 uid="uid://dttf5066hr1pl"]
 
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_62otj"]
 [ext_resource type="Texture2D" uid="uid://d0bv7vmg1kv07" path="res://assets/sprites/slime_green.png" id="1_gr0m4"]
 [ext_resource type="PackedScene" uid="uid://cm3gfpb2ylc3" path="res://scenes/killzone.tscn" id="2_42rux"]
+[ext_resource type="AudioStream" uid="uid://cgcq8qf02kt5p" path="res://assets/sounds/enemy_damage.wav" id="4_yu5ce"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dn5u8"]
 atlas = ExtResource("1_gr0m4")
@@ -86,6 +87,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemyDamage:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_txvd4"]
 resource_name = "new_animation"
@@ -128,6 +141,18 @@ tracks/2/keys = {
 "method": &"takeDamage"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EnemyDamage:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fsa4e"]
 _data = {
@@ -140,6 +165,7 @@ script = ExtResource("1_62otj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lnlnx")
+animation = &"take_damage"
 autoplay = "default"
 frame = 1
 
@@ -181,6 +207,9 @@ libraries = {
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="EnemyDamage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_yu5ce")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
