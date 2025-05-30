@@ -1,7 +1,7 @@
 extends CharacterBody2D
 const SPEED = 150
 const JUMP_VELOCITY = -300.0
-const X=-121
+const X=-75
 const Y=8
 #Variables
 var coyoteTime:bool=true

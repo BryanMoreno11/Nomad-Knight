@@ -618,6 +618,11 @@ theme_override_fonts/font = ExtResource("9_ebnai")
 theme_override_font_sizes/font_size = 20
 text = "0"
 
+[node name="Timer" type="Timer" parent="GameManager"]
+process_mode = 3
+wait_time = 0.5
+one_shot = true
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("6_vj232")]
@@ -738,6 +743,7 @@ shape = SubResource("RectangleShape2D_8pe4h")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1912, 32)
 
+[connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="body_entered" from="PlataformContainer/Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="PlataformContainer/Area2D" to="PlataformContainer" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="AreaCheckpoint" to="Player" method="_on_area_checkpoint_body_entered"]

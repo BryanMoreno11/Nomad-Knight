@@ -1,9 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://c05c8n6cemy8v"]
 
-[ext_resource type="AudioStream" uid="uid://d3nfbeu22d0u2" path="res://assets/music/Pixel Odyssey.mp3" id="1_nhsko"]
+[ext_resource type="AudioStream" uid="uid://or3c3ikikmy0" path="res://assets/music/Angel Island Zone (Act 2) - Sonic the Hedgehog 3 [OST].mp3" id="1_6u1pu"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
-stream = ExtResource("1_nhsko")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_6u1pu")
 autoplay = true
 bus = &"Music"
-parameters/looping = true

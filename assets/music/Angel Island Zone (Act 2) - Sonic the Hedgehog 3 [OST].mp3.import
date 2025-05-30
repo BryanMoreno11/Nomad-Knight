@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://or3c3ikikmy0"
+path="res://.godot/imported/Angel Island Zone (Act 2) - Sonic the Hedgehog 3 [OST].mp3-02feab2fd6b319af3b4b4a7f5a53a706.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Angel Island Zone (Act 2) - Sonic the Hedgehog 3 [OST].mp3"
+dest_files=["res://.godot/imported/Angel Island Zone (Act 2) - Sonic the Hedgehog 3 [OST].mp3-02feab2fd6b319af3b4b4a7f5a53a706.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
