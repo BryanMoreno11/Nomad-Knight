@@ -17,8 +17,8 @@ var coyoteTime:bool=true
 
 func  _ready() -> void:
 	attackCollision.disabled=true
-	position.x=X
-	position.y=Y
+	#position.x=X
+	#position.y=Y
 	
 
 func _on_coyote_timer_timeout() -> void:
