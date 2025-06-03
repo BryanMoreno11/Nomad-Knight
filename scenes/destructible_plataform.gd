@@ -1,10 +1,14 @@
 extends Area2D
 @export var tilemap_layer:TileMapLayer
 
-func break_tile():
-	var tile_pos = tilemap_layer.local_to_map(global_position)
-	print("la posicion del tile es ", tile_pos)
-	tilemap_layer.erase_cell(tile_pos)
+#variables
+var X=262
+var Y=-15
+
+func break_tiles():
+	print("Entrada")
+	for i in range(1,16):
+		tilemap_layer.set_cell(Vector2i(X+i, Y),-1)
 
 
 
@@ -22,4 +26,4 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	break_tile()
+	break_tiles()
