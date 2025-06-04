@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ftds42bc7ahb"
+path="res://.godot/imported/Ice Break Sound Effect.mp3-15b08855d485954d022ead72fe7f4ce6.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Ice Break Sound Effect.mp3"
+dest_files=["res://.godot/imported/Ice Break Sound Effect.mp3-15b08855d485954d022ead72fe7f4ce6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

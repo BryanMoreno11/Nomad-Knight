@@ -1,13 +1,15 @@
 extends Area2D
 @export var tilemap_layer:TileMapLayer
+@onready var iceSound= $AudioStreamPlayer2D
+
 
 #variables
-var X=262
+var X=259
 var Y=-15
 
 func break_tiles():
 	print("Entrada")
-	for i in range(1,16):
+	for i in range(1,19):
 		tilemap_layer.set_cell(Vector2i(X+i, Y),-1)
 
 
@@ -26,4 +28,5 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	iceSound.play()
 	break_tiles()
