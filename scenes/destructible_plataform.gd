@@ -6,9 +6,9 @@ extends Area2D
 #variables
 var X=259
 var Y=-15
+var passed=false
 
 func break_tiles():
-	print("Entrada")
 	for i in range(1,19):
 		tilemap_layer.set_cell(Vector2i(X+i, Y),-1)
 
@@ -28,5 +28,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	iceSound.play()
-	break_tiles()
+	if passed==false:
+		iceSound.play()
+		break_tiles()
+		passed=true

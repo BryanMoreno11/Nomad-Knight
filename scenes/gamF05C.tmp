@@ -16,9 +16,6 @@
 [ext_resource type="Script" path="res://scenes/end_zone.gd" id="14_s15f1"]
 [ext_resource type="PackedScene" uid="uid://cvo13dx8ly3gf" path="res://scenes/scene_transition_animation.tscn" id="15_8calg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xuxkb"]
-size = Vector2(24, 20)
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uqyt3"]
 
 [sub_resource type="Animation" id="Animation_ws8ws"]
@@ -530,23 +527,10 @@ size = Vector2(224, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcyoi"]
 size = Vector2(20, 192)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xuxkb"]
+size = Vector2(24, 20)
+
 [node name="Game" type="Node2D"]
-
-[node name="endZone" type="Node" parent="."]
-script = ExtResource("14_s15f1")
-
-[node name="Area2D" type="Area2D" parent="endZone"]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="endZone/Area2D"]
-position = Vector2(6184, -80)
-shape = SubResource("RectangleShape2D_xuxkb")
-
-[node name="SceneTransitionAnimation" parent="endZone" instance=ExtResource("15_8calg")]
-
-[node name="Timer" type="Timer" parent="endZone"]
-wait_time = 0.5
-one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("1_ecwos")]
 position = Vector2(6096, 22)
@@ -847,10 +831,25 @@ position = Vector2(6329.12, 40)
 position = Vector2(0, -80)
 shape = SubResource("RectangleShape2D_dcyoi")
 
-[connection signal="body_entered" from="endZone/Area2D" to="endZone" method="_on_area_2d_body_entered"]
-[connection signal="timeout" from="endZone/Timer" to="endZone" method="_on_timer_timeout"]
+[node name="endZone" type="Node" parent="."]
+script = ExtResource("14_s15f1")
+
+[node name="Area2D" type="Area2D" parent="endZone"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="endZone/Area2D"]
+position = Vector2(6184, -80)
+shape = SubResource("RectangleShape2D_xuxkb")
+
+[node name="Timer" type="Timer" parent="endZone"]
+one_shot = true
+
+[node name="SceneTransitionAnimation" parent="endZone" instance=ExtResource("15_8calg")]
+
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="body_entered" from="PlataformContainer/Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="PlataformContainer/Area2D" to="PlataformContainer" method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="DestructiblePlataform" to="DestructiblePlataform" method="_on_area_entered"]
 [connection signal="body_entered" from="DestructiblePlataform" to="DestructiblePlataform" method="_on_body_entered"]
+[connection signal="body_entered" from="endZone/Area2D" to="endZone" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="endZone/Timer" to="endZone" method="_on_timer_timeout"]

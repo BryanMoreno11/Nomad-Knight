@@ -13,3 +13,5 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	gameManager.checkpoint=true
+	gameManager.checkpoint_x= position.x
+	gameManager.checkpoint_y=position.y

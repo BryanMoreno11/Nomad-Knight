@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6hmpn2ucf0yt"]
+
+[ext_resource type="Script" path="res://scenes/area_checkpoint.gd" id="1_m3vnq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pe4h"]
+size = Vector2(80, 31.5361)
+
+[node name="AreaCheckpoint" type="Area2D"]
+position = Vector2(1912, 24)
+collision_mask = 2
+script = ExtResource("1_m3vnq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.46497, -0.705)
+scale = Vector2(0.97, 0.97)
+shape = SubResource("RectangleShape2D_8pe4h")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
