@@ -2,7 +2,7 @@ extends CharacterBody2D
 const SPEED = 150
 const JUMP_VELOCITY = -300.0
 const X=-75
-const Y=8
+const Y=90
 #Variables
 var coyoteTime:bool=true
 @export var attacking:bool=false
@@ -17,8 +17,8 @@ var coyoteTime:bool=true
 
 func  _ready() -> void:
 	attackCollision.disabled=true
-	#position.x=X
-	#position.y=Y
+	position.x=X
+	position.y=Y
 	
 
 func _on_coyote_timer_timeout() -> void:

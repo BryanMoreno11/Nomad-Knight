@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5t47fy03asxi"
+path="res://.godot/imported/The Legend of Zelda - A Link To The Past - Opening.mp3-a0b9ab85967fec8d6b6851d2fba4c165.mp3str"
+
+[deps]
+
+source_file="res://assets/music/The Legend of Zelda - A Link To The Past - Opening.mp3"
+dest_files=["res://.godot/imported/The Legend of Zelda - A Link To The Past - Opening.mp3-a0b9ab85967fec8d6b6851d2fba4c165.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -17,10 +17,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if passed==false:
 		passed=true
 		sceneTransitionAnimation.play("fade_in")
+		var tween= create_tween()
+		tween.tween_property(BackgroundMusic, "volume_db",-80,2)
 		timer.start()
 		print("Entro")
 
 
 func _on_timer_timeout() -> void:
-	pass
+	BackgroundMusic.stop()
 	get_tree().change_scene_to_file("res://scenes/gameEnd.tscn")

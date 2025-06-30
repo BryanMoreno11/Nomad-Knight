@@ -1,10 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://b45lj0whhuky6"]
+[gd_scene load_steps=5 format=3 uid="uid://b45lj0whhuky6"]
 
 [ext_resource type="Texture2D" uid="uid://b4uy6mrt54dhp" path="res://assets/sprites/endGame.png" id="1_fev58"]
+[ext_resource type="Script" path="res://scenes/game_end.gd" id="1_yifsj"]
+[ext_resource type="AudioStream" uid="uid://bofx0ic11gy05" path="res://assets/music/Ending Theme - Super Mario_ World.mp3" id="2_4ox7l"]
+[ext_resource type="PackedScene" uid="uid://cvo13dx8ly3gf" path="res://scenes/scene_transition_animation.tscn" id="4_l4lgp"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_yifsj")
 
 [node name="EndGame" type="Sprite2D" parent="."]
 position = Vector2(632, 325)
 scale = Vector2(1.23437, 0.634766)
 texture = ExtResource("1_fev58")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4ox7l")
+autoplay = true
+
+[node name="SceneTransitionAnimation" parent="." instance=ExtResource("4_l4lgp")]

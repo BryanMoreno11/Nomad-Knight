@@ -9,6 +9,9 @@ var isPaused:bool=false
 @onready var label= $CanvasLayer/Label
 @onready var timer= $Timer
 
+func _ready() -> void:
+	BackgroundMusic.play()
+	BackgroundMusic.volume_db= 0
 
 func _process(delta: float) -> void:
 	pauseGame()

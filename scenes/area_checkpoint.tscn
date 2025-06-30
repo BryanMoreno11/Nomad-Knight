@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6hmpn2ucf0yt"]
+[gd_scene load_steps=4 format=3 uid="uid://c6hmpn2ucf0yt"]
 
 [ext_resource type="Script" path="res://scenes/area_checkpoint.gd" id="1_m3vnq"]
+[ext_resource type="AudioStream" uid="uid://cljlaji564h8p" path="res://assets/sounds/checkpoint-sound.mp3" id="2_le6nj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pe4h"]
 size = Vector2(80, 31.5361)
@@ -16,5 +17,9 @@ scale = Vector2(0.97, 0.97)
 shape = SubResource("RectangleShape2D_8pe4h")
 
 [node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_le6nj")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
