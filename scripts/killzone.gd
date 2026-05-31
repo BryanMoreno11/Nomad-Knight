@@ -5,7 +5,7 @@ extends Area2D
 
 
 func _on_body_entered(body: Node2D) -> void:
-	
+	Input.start_joy_vibration(0,0.5,0.5,0.5)
 	if (gameManager.checkpoint==false):
 		body.get_node("CollisionShape2D").queue_free()
 		timer.start()

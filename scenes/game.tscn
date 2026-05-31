@@ -7,13 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://cm3gfpb2ylc3" path="res://scenes/killzone.tscn" id="5_5iply"]
 [ext_resource type="PackedScene" uid="uid://dttf5066hr1pl" path="res://scenes/enemy.tscn" id="6_vj232"]
 [ext_resource type="FontFile" uid="uid://dbvo28clp7u58" path="res://assets/fonts/PixelOperator8.ttf" id="7_5368y"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="8_c8l3m"]
+[ext_resource type="Script" uid="uid://drndujplo35oe" path="res://scripts/game_manager.gd" id="8_c8l3m"]
 [ext_resource type="FontFile" uid="uid://dhlxevueik7ic" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="9_ebnai"]
-[ext_resource type="Script" path="res://scenes/plataform_container.gd" id="10_idh30"]
+[ext_resource type="Script" uid="uid://bkom0c0s2pi62" path="res://scenes/plataform_container.gd" id="10_idh30"]
 [ext_resource type="PackedScene" uid="uid://c6hmpn2ucf0yt" path="res://scenes/area_checkpoint.tscn" id="11_kv3hc"]
-[ext_resource type="Script" path="res://scenes/destructible_plataform.gd" id="12_akxsp"]
+[ext_resource type="Script" uid="uid://cvs0bufp6glio" path="res://scenes/destructible_plataform.gd" id="12_akxsp"]
 [ext_resource type="AudioStream" uid="uid://ftds42bc7ahb" path="res://assets/sounds/Ice Break Sound Effect.mp3" id="13_ya20h"]
-[ext_resource type="Script" path="res://scenes/end_zone.gd" id="14_s15f1"]
+[ext_resource type="Script" uid="uid://d2ckvrc4wtx6u" path="res://scenes/end_zone.gd" id="14_s15f1"]
 [ext_resource type="PackedScene" uid="uid://cvo13dx8ly3gf" path="res://scenes/scene_transition_animation.tscn" id="15_8calg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xuxkb"]
@@ -55,8 +55,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7g6gy"]
 _data = {
-"RESET": SubResource("Animation_ws8ws"),
-"new_animation": SubResource("Animation_77k7k")
+&"RESET": SubResource("Animation_ws8ws"),
+&"new_animation": SubResource("Animation_77k7k")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_htmj5"]
@@ -399,8 +399,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jxnki"]
 _data = {
-"RESET": SubResource("Animation_ap2q2"),
-"plataform_move": SubResource("Animation_odfja")
+&"RESET": SubResource("Animation_ap2q2"),
+&"plataform_move": SubResource("Animation_odfja")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpvii"]
@@ -440,8 +440,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d75gc"]
 _data = {
-"RESET": SubResource("Animation_eb84c"),
-"new_animation": SubResource("Animation_8dh8k")
+&"RESET": SubResource("Animation_eb84c"),
+&"new_animation": SubResource("Animation_8dh8k")
 }
 
 [sub_resource type="Animation" id="Animation_w1ipe"]
@@ -478,8 +478,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jr6f8"]
 _data = {
-"RESET": SubResource("Animation_w1ipe"),
-"new_animation": SubResource("Animation_g37sa")
+&"RESET": SubResource("Animation_w1ipe"),
+&"new_animation": SubResource("Animation_g37sa")
 }
 
 [sub_resource type="Animation" id="Animation_885cs"]
@@ -517,8 +517,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xy8my"]
 _data = {
-"RESET": SubResource("Animation_885cs"),
-"new_animation": SubResource("Animation_diha0")
+&"RESET": SubResource("Animation_885cs"),
+&"new_animation": SubResource("Animation_diha0")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7o4a"]
@@ -571,7 +571,7 @@ position = Vector2(384, 27)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FloatingPlataform"]
 libraries = {
-"": SubResource("AnimationLibrary_7g6gy")
+&"": SubResource("AnimationLibrary_7g6gy")
 }
 autoplay = "new_animation"
 
@@ -681,7 +681,7 @@ position = Vector2(1160, 24)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlataformContainer/plataform2"]
 libraries = {
-"": SubResource("AnimationLibrary_jxnki")
+&"": SubResource("AnimationLibrary_jxnki")
 }
 
 [node name="Area2D" type="Area2D" parent="PlataformContainer"]
@@ -744,7 +744,7 @@ position = Vector2(2712, -16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FloatingPlataformGroup/FloatingPlataform1"]
 libraries = {
-"": SubResource("AnimationLibrary_d75gc")
+&"": SubResource("AnimationLibrary_d75gc")
 }
 autoplay = "new_animation"
 
@@ -753,7 +753,7 @@ position = Vector2(2784, -16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FloatingPlataformGroup/FloatingPlataform2"]
 libraries = {
-"": SubResource("AnimationLibrary_jr6f8")
+&"": SubResource("AnimationLibrary_jr6f8")
 }
 autoplay = "new_animation"
 
@@ -762,7 +762,7 @@ position = Vector2(2856, -16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FloatingPlataformGroup/FloatingPlataform3"]
 libraries = {
-"": SubResource("AnimationLibrary_xy8my")
+&"": SubResource("AnimationLibrary_xy8my")
 }
 autoplay = "new_animation"
 

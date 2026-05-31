@@ -33,8 +33,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r205o"]
 _data = {
-"RESET": SubResource("Animation_usbkw"),
-"fade_in": SubResource("Animation_g6f31")
+&"RESET": SubResource("Animation_usbkw"),
+&"fade_in": SubResource("Animation_g6f31")
 }
 
 [node name="SceneTransitionAnimation" type="Node2D"]

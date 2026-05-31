@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if passed==false:
+		Input.start_joy_vibration(0,1,1,0.5)
 		iceSound.play()
 		break_tiles()
 		passed=true

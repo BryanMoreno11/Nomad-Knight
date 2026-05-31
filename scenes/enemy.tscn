@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://dttf5066hr1pl"]
 
-[ext_resource type="Script" path="res://scripts/slime.gd" id="1_62otj"]
+[ext_resource type="Script" uid="uid://ceoifem1roy8x" path="res://scripts/slime.gd" id="1_62otj"]
 [ext_resource type="Texture2D" uid="uid://d0bv7vmg1kv07" path="res://assets/sprites/slime_green.png" id="1_gr0m4"]
 [ext_resource type="PackedScene" uid="uid://cm3gfpb2ylc3" path="res://scenes/killzone.tscn" id="2_42rux"]
 [ext_resource type="AudioStream" uid="uid://cgcq8qf02kt5p" path="res://assets/sounds/enemy_damage.wav" id="4_yu5ce"]
@@ -156,8 +156,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fsa4e"]
 _data = {
-"RESET": SubResource("Animation_4d0rf"),
-"new_animation": SubResource("Animation_txvd4")
+&"RESET": SubResource("Animation_4d0rf"),
+&"new_animation": SubResource("Animation_txvd4")
 }
 
 [node name="Enemy" type="Node2D"]
